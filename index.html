@@ -5,9 +5,9 @@
 	<meta name="description" content="Starter">
 	<meta name="author" content="Admin">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-	<title>Sportshold</title>
+	<title>SportsHold</title>
 
-	
+	<link rel="icon" href="images/favicon.png">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/styles.min.css">
 
@@ -16,17 +16,94 @@
 	<![endif]-->
 </head>
 <body>
-	<section class="cart">
-	
-		
+	<section class="cart-holder">
+		<div class="cart-info__wrapper">
+			<div class="cart-info__main d-flex justify-content-between">
+				<p class="cart-info__cost">$<i></i></p>
+				<p class="cart-info__quantity"><i></i> items</p>
+				<i class="cart-info__closeBtn"><i class="fas fa-window-close"></i></i>
+			</div>
+			<div class="cart">
+			</div>
+			<button type="button" class="cart-info__buyBtn">Buy</button>
+		</div>
 	</section>
 	<section class="cart-mini">
 		<img src="images/basket.png" alt="" class="org__basket">
 	</section>
-	<header class="header">
+	<section class="payment">
+		<div class="payment__container">
+			<div class="payment__form d-flex flex-column">
+			<h2 class="payment__title">Payment</h2>
+			<p class="payment__form-cost">To pay:  <i></i></p>
+			<div class="d-flex payment-names justify-content-between">
+				<input type="text" class="payment__form-firstName" placeholder="First Name">
+				<input type="text" class="payment__form-lastName" placeholder="Last Name">
+				<input type="text" class="payment__form-tel" id="tel" required="required">
+				<input type="email" class="payment__form-email" id="email" placeholder="Email">
+			</div>
+			<div class="d-flex flex-column">
+				<p class="payment__form-delivery">Delivery Method</p>
+				<div class="d-flex align-items-baseline">
+					<input type="radio" class="payment__form-delivery--check" name="delivery-method" id="pickup" value="pickup">
+					<label for="pickup" class="payment__form-delivery--lab">Pickup</label>
+					<input type="radio" class="payment__form-delivery--check" name="delivery-method" id="mail-delivery" value="mail">
+					<label for="mail-delivery" class="payment__form-delivery--lab right-lab">Mail delivery</label>
+				</div>
+				<div class="payment__form-delivery--select d-flex flex-column align-items-center" >
+					<p></p>
+					<div id="map"></div>
+				</div>
+			</div>
+			<div class="d-flex flex-column">
+				<p class="payment__form-payment">Payment method</p>
+				<div class="d-flex">
+					<input type="radio" name="payment-method" class="payment__form-payment--check" id="cashless" value="cashles">
+					<label for="cashless" class="payment__form-payment--lab">Cashless Payment</label>
+				    <input type="radio" name="payment-method" class="payment__form-payment--check" id="cash" value="cash">
+				    <label for="cash" class="payment__form-payment--lab right-lab">Cash Payment</label>
+				</div>
+				<div class="payment__form-payment--select flex-column">
+					<div class="d-flex flex-column">
+						<label for="card-number">Card Number</label>
+						<input type="text" id="card-number" class="dynamic-input dynamic-input-md">
+					</div>
+					<div class="d-flex">
+						<div class="d-flex flex-column">
+							<label for="card-validity">Card Validity</label>
+							<input type="text" id="card-validity" class="dynamic-input dynamic-input-sm">	
+						</div>
+						<div class="d-flex flex-column">
+							<label for="card-cvv">Card CVV</label>
+							<input type="text" id="card-cvv" class="dynamic-input dynamic-input-sm">
+						</div>
+					</div>
+					<button type="button" class="payment__form-payment--btn pay-btn">Pay</button>
+				</div>
+				<div class="payment__form-payment--cash">
+					<button type="button" class="payment__form-payment--btn checkout-btn">Checkout</button>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="success-payment flex-column align-items-center">
+		<p class="success-payment__alert">
+			Thank You!<br>
+			Payment was successful!
+		</p>
+		<button type="button" class="success-payment__btn">OK</button>
+	</div>
+	<div class="success-checkout flex-column align-items-center">
+		<p class="success-checkout__alert">
+			Thank you!<br>
+			Our manager will contact you!
+		</p>
+		<button type="button" class="success-checkout__btn">OK</button>
+	</div>
+	<header class="header d-flex flex-column">
 		<div class="menu justify-content-between align-items-center">
 			<div class="menu__container d-flex justify-content-between">
-				<ul class="menu__linklist d-flex">
+				<ul class="menu__linklist">
 					<li class="menu__linklist-item"><a href="#" class="menu__linklist-link">Support</a></li>
 					<li class="menu__linklist-item"><a href="#" class="menu__linklist-link">Delivery</a></li>
 					<li class="menu__linklist-item"><a href="#" class="menu__linklist-link">Legal</a></li>
@@ -55,59 +132,40 @@
 					<li class="nav__list-item"><a href="#" class="nav__list-link">Our Brands</a></li>
 					<li class="nav__list-item"><a href="#" class="nav__list-link">Sales</a></li>
 				</ul>
+				<div class="nav__mobile"></div>
 			</div>
 		</div>
-		<section class="airmax">
-			<div class="col-6 offset-6">
-				<p class="airmax__cost">From $80.00</p>
-				<h1 class="airmax__title">Nike Air Max</h1>
-				<p class="airmax__description">50 Variants</p>
-				<p class="airmax__txt">Since this is our favourite sneaker we're bringing you 50 variants to suit everyone's needs</p>
-				<button type="buton" class="airmax__btn">Browse Variants</button>
-			</div>
-		</section>
+	</header>
+	<section class="airmax">
+		<div class="col-6 offset-6">
+			<p class="airmax__cost">From $80.00</p>
+			<h1 class="airmax__title">Nike Air Max</h1>
+			<p class="airmax__description">50 Variants</p>
+			<p class="airmax__txt">Since this is our favourite sneaker we're bringing you 50 variants to suit everyone's need</p>
+			<button type="buton" class="airmax__btn">Browse Variants</button>
+		</div>
 		<div class="sneaker">
 			<img src="images/bigsneaker.png" alt="big airmax" class="sneaker__img">
 		</div>
-	</header>
+	</section>
 	<section class="banner">
-		<div class="row">
-			<div class="col-6">
-				<div class="banner__kyrie d-flex flex-column ">
-					<div class="banner__kyrie-info d-flex ">
-						<img src="images/kyrie-logo.png" alt="logo kyrie" class="banner__kyrie-logo">
-						<div class="banner__kyrie-txt d-flex flex-column align-items-center">
-							<p class="banner__kyrie-txt--top">Discover the new</p>
-							<p class="banner__kyrie-txt--title">Nike Kyrie 3</p>
+		<div class="banner__container">
+			<div class="d-flex justify-content-between">
+				<div class="w-50">
+					<a href="#">
+						<div class="banner__jordan">
+							<p class="banner__jordan-txt">Legendary</p>
+							<p class="banner__jordan-title">Air Jordan</p>
 						</div>
-					</div>
-					<a href="#" class="banner__kyrie-btn">View Collection</a>
+					</a>
 				</div>
-			</div>
-			<div class="col-6">
-				<div class="banner__arrivals">
-					<div class="banner__arrivals-txt  d-flex flex-column align-items-center">
-						<p class="banner__arrivals-txt--top">Check out the</p>
-						<p class="banner__arrivals-txt--title"> New Arrivals</p>
-						<a href="#" class="banner__arrivals-txt--btn">Discover</a>
-					</div>
-					<img src="images/boost.png" alt="boost" class="banner__arrivals-img">
-				</div>
-				<div class="row">
-					<div class="col-6 banner__athlets-holder">
-						<a href="#" class="banner__athlets">
-						<img src="images/athlets.jpg" alt="athlets" class="banner__athlets-img">						
-							<p class="banner__athlets-top">Best for</p>
+				<div class="w-50">
+					<a href="#">
+						<div class="banner__athlets">
+							<p class="banner__athlets-txt">Best for</p>
 							<p class="banner__athlets-title">Athletes</p>
-						</a>
-					</div>
-					<div class="col-6 banner__premium-holder">
-						<a href="#" class="banner__premium d-flex flex-column align-items-center">
-							<p class="banner__premium-top">Feel</p>
-							<p class="banner__premium-title">Premium</p>
-						</a>
-						<img src="images/premium.png" alt="premium" class="banner__premium-img">
-					</div>
+						</div>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -118,107 +176,331 @@
 			<div class="products__tab products__popular">Popular</div>
 			<div class="products__tab products__all">All</div>
 		</div>
-		<div class="products__list d-flex">
-
-
-		</div>
+		<div class="products__list d-flex"></div>
 	</section>
 	<section class="modal-back"></section>
+	<section class="modal-back-second"></section>
 	<section class="modal">
 		<div class="d-flex justify-content-between">
-			<div class="product__holder d-flex justify-content-between" id="">
-				<div class="modal__icons d-flex flex-column justify-content-between">
-					
+			<div class="product__holder carousel slide carousel-fade d-flex " id="carouselExampleFade" data-ride="carousel">
+				<ol class="carousel-indicators d-flex flex-column">
+					<li data-target="#carouselExampleFade" data-slide-to="0" class="iFirst active"></li>
+				    <li data-target="#carouselExampleFade" data-slide-to="1" class="iSecond"></li>
+				    <li data-target="#carouselExampleFade" data-slide-to="2" class="iThird"></li>
+				    <li data-target="#carouselExampleFade" data-slide-to="3" class="iFourth"></li>
+				    <li data-target="#carouselExampleFade" data-slide-to="4" class="iFifth"></li>
+				</ol>
+				<div class="carousel-inner">
+				    <div class="product__holder-slide slide-first carousel-item active"></div>
+				    <div class="product__holder-slide slide-second carousel-item"></div>
+				    <div class="product__holder-slide slide-third carousel-item"></div>
+				    <div class="product__holder-slide slide-fourth carousel-item"></div>
+				    <div class="product__holder-slide slide-fifth carousel-item"></div>
 				</div>
-				<div class="modal__img-holder">
-					
-				</div>
-
-				
-
 			</div>
 			<div class="modal__info d-flex flex-column align-items-end justify-content-between">
-				<div class="modal__close-holder">
-					<div class="modal__close"></div>
-				</div>
-				<h3 class="modal__info-title"></h3>
-				<p class="modal__info-vendor"></p>
-				<p class="modal__info-gender"></p>
-				<p class="modal__info-cost"></p>
-				<p class="modal__info-size--title">Size:</p>
-				<div class="modal__info-size d-flex flex-column align-items-end">
-					<span class="modal__info-size--selected">11 US / 44 UA / 45 EU</span>
-					<div class="modal__info-size--hidden">
-						<table class="modal__info-size--chose d-flex flex-column">
-							<tr>
-								<td class="modal__info-size--item">5<i> US /37,5 EU /36,5 UA</i></td>
-								<td class="modal__info-size--item">5,5<i> US /38 EU /37 UA</i></td>
-								<td class="modal__info-size--item">6<i> US /38,5 EU /37,5 UA</i></td>
-								<td class="modal__info-size--item">6,5<i> US /39,5 EU /38,5 UA</i></td>
-								<td class="modal__info-size--item">7<i> US /40 EU /39 UA</i></td>
-							
-							</tr>
-							<tr>
-								<td class="modal__info-size--item">7,5<i> US /40,5 EU /40 UA</i></td>
-								<td class="modal__info-size--item">8<i> US /41,5 EU /40,5 UA</i></td>
-								<td class="modal__info-size--item">8,5<i> US /42 EU /41 UA</i></td>
-								<td class="modal__info-size--item">9<i> US /42,5 EU /41,5 UA</i></td>
-								<td class="modal__info-size--item">9,5<i> US /43 EU /42 UA</i></td>
-						
-							</tr>
-							<tr>
-								<td class="modal__info-size--item">10<i> US /44 EU /43 UA</i></td>
-								<td class="modal__info-size--item">10,5<i> US /44,5 EU /43,5 UA</i></td>
-								<td class="modal__info-size--item">11<i> US /45 EU /44 UA</i></td>
-								<td class="modal__info-size--item">11,5<i> US /45,5 EU /44,5 UA</i></td>
-								<td class="modal__info-size--item">12<i> US /46,5 EU /45,5 UA</i></td>
-						
-							</tr>
-							<tr>
-								<td class="modal__info-size--item">12.5<i> US /47 EU /46 UA</i></td>
-								<td class="modal__info-size--item">13<i> US /47,5 EU /46,5 UA</i></td>
-								<td class="modal__info-size--item">14<i> US /49 EU /48 UA</i></td>
-								<td class="modal__info-size--item">15<i> US /50 EU /49 UA</i></td>
-								<td class="modal__info-size--item">16<i> US /51 EU /50 UA</i></td>
-						
-							</tr>
-
-						</table>
-						<span class="modal__info-size--view">9,5 US /43 EU /42 UA</span>
+				<div class="d-flex flex-row-reverse justify-content-between first-line">
+					<div class="modal__close-holder">
+						<div class="modal__close"></div>
 					</div>
-					
-					
-
+					<h3 class="modal__info-title"></h3>
 				</div>
-				<p class="modal__info-quantity--txt">Quantity:</p>
-				<div class="modal__info-quantity d-flex">
-						
-					<button class="modal__info-quantity--btnDown">-</button>
-					<span class="modal__info-quantity--input">0</span>
-					<button class="modal__info-quantity--btnUp">+</button>
+				<div class="d-flex second-line">
+					<div class="d-flex flex-column">
+						<p class="modal__info-gender"></p>
+						<p class="modal__info-cost"></p>
+					</div>
+					<p class="modal__info-vendor"></p>
+				</div>
+				<div class="d-flex third-line">
+					<div class="d-flex size">
+						<p class="modal__info-size--title">Size:</p>
+						<div class="modal__info-size d-flex flex-column align-items-end">
+							<span class="modal__info-size--selected">11 US / 44 UA / 45 EU</span>
+							<div class="modal__info-size--hidden">
+								<table class="modal__info-size--chose d-flex flex-column">
+									<tr>
+										<td class="modal__info-size--item">5<i> US /37,5 EU /36,5 UA</i></td>
+										<td class="modal__info-size--item">5,5<i> US /38 EU /37 UA</i></td>
+										<td class="modal__info-size--item">6<i> US /38,5 EU /37,5 UA</i></td>
+										<td class="modal__info-size--item">6,5<i> US /39,5 EU /38,5 UA</i></td>
+										<td class="modal__info-size--item">7<i> US /40 EU /39 UA</i></td>
+									</tr>
+									<tr>
+										<td class="modal__info-size--item">7,5<i> US /40,5 EU /40 UA</i></td>
+										<td class="modal__info-size--item">8<i> US /41,5 EU /40,5 UA</i></td>
+										<td class="modal__info-size--item">8,5<i> US /42 EU /41 UA</i></td>
+										<td class="modal__info-size--item">9<i> US /42,5 EU /41,5 UA</i></td>
+										<td class="modal__info-size--item">9,5<i> US /43 EU /42 UA</i></td>
+									</tr>
+									<tr>
+										<td class="modal__info-size--item">10<i> US /44 EU /43 UA</i></td>
+										<td class="modal__info-size--item">10,5<i> US /44,5 EU /43,5 UA</i></td>
+										<td class="modal__info-size--item">11<i> US /45 EU /44 UA</i></td>
+										<td class="modal__info-size--item">11,5<i> US /45,5 EU /44,5 UA</i></td>
+										<td class="modal__info-size--item">12<i> US /46,5 EU /45,5 UA</i></td>
+									</tr>
+									<tr>
+										<td class="modal__info-size--item">12.5<i> US /47 EU /46 UA</i></td>
+										<td class="modal__info-size--item">13<i> US /47,5 EU /46,5 UA</i></td>
+										<td class="modal__info-size--item">14<i> US /49 EU /48 UA</i></td>
+										<td class="modal__info-size--item">15<i> US /50 EU /49 UA</i></td>
+										<td class="modal__info-size--item">16<i> US /51 EU /50 UA</i></td>
+									</tr>
+								</table>
+								<span class="modal__info-size--view">9,5 US /43 EU /42 UA</span>
+							</div>
+						</div>
+					</div>
+					<div class="d-flex quantity">
+						<p class="modal__info-quantity--txt">Quantity:</p>
+						<div class="modal__info-quantity d-flex">
+							<button class="modal__info-quantity--btnDown">-</button>
+							<span class="modal__info-quantity--input">0</span>
+							<button class="modal__info-quantity--btnUp">+</button>
+						</div>
+					</div>
 				</div>
 				<button class="modal__info-cart">+ Add To Cart<img src="images/basket.png" alt="basket"></button>
+			</div>
+		</div>
+	</section>
+	<section class="brands d-flex justify-content-between align-items-baseline">
+		<img src="images/brands/adidas.png" alt="adidas" class="brands__item">
+		<img src="images/brands/nike.png" alt="nike" class="brands__item">
+		<img src="images/brands/puma.png" alt="puma" class="brands__item">
+		<img src="images/brands/asics.png" alt="asics" class="brands__item">
+		<img src="images/brands/nb.png" alt="nb" class="brands__item">
+	</section>
+	<section class="testimonials">
+		<div class="testimonials__container">
+			<div class="testimonials__members">
+				<div class="testimonials__members-inner d-flex justify-content-between">
+					<div class="members__item" id="first">
+						<div class="members__item-image">
+							<img src="images/member-1.jpg" alt="Jonathan Davis">
+						</div>
+						<div class="members__item-name">Johnathan Davis</div>
+						<div class="members__item-rate d-flex justify-content-around">
+							<img src="images/star.png" alt="star">
+							<img src="images/star.png" alt="star">
+							<img src="images/star.png" alt="star">
+							<img src="images/star.png" alt="star">
+							<img src="images/star-empty.png" alt="star">
+						</div>
+					</div>
+					<div class="members__item active-member" id="second">
+						<div class="members__item-image">
+							<img src="images/member-2.jpg" alt="James Hetfield">
+						</div>
+						<div class="members__item-name">James Hetfield</div>
+						<div class="members__item-rate d-flex justify-content-around">
+							<img src="images/star.png" alt="star">
+							<img src="images/star.png" alt="star">
+							<img src="images/star.png" alt="star">
+							<img src="images/star.png" alt="star">
+							<img src="images/star-empty.png" alt="star">
+						</div>
+					</div>
+					<div class="members__item" id="third">
+						<div class="members__item-image">
+							<img src="images/member-3.jpg" alt="Corey Taylor">
+						</div>
+						<div class="members__item-name">Corey Taylor</div>
+						<div class="members__item-rate d-flex justify-content-around">
+							<img src="images/star.png" alt="star">
+							<img src="images/star.png" alt="star">
+							<img src="images/star.png" alt="star">
+							<img src="images/star.png" alt="star">
+							<img src="images/star-empty.png" alt="star">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="testimonials__txt second">
+				<p>
+					These are the legs that in circles run
+					This is the beating you'll never know
+					These are the lips that taste no freedom
+					This is the feel that's not so safe
+					This is the face you'll never change
+					This is the god that ain't so pure
+					This is the god that is not pure
+					This is the voice of silence no more
 
+					We the people
+					Are we the people?
+					We the people
+					Are we the people?
+
+					Some kind of monster
+					Some kind of monster
+					Some kind of monster
+					This monster lives
+				</p>
+			</div>
+		</div>
+	</section>
+	<section class="news">
+		<div class="news__container">
+			<div class="row">
+				<div class="col-12 news__title">Latest News</div>
+			</div>
+			<div class="row news__items">
+				<div class="col-12 col-lg-4 col-md-4 news__holder">
+					<a href="#" class="news__item">
+						<div class="news__item-bg news__item-bg--first">
+							<p class="news__item-date">Dec 27, 2018</p>
+							<p class="news__item-txt">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+							</p>
+							<p class="news__item-comments"><img src="images/comments.png" alt="comments">24 Comments</p>
+							<div class="news__item-hover">
+								<div>
+									<p>Read More</p>
+								</div>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-12 col-lg-4 col-md-4 news__holder">
+					<a href="#" class="news__item">
+						<div class="news__item-bg news__item-bg--second">
+							<p class="news__item-date">Dec 27, 2018</p>
+							<p class="news__item-txt">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+							</p>
+							<p class="news__item-comments"><img src="images/comments.png" alt="comments">24 Comments</p>
+							<div class="news__item-hover">
+								<div>
+									<p>Read More</p>
+								</div>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-12 col-lg-4 col-md-4 news__holder">
+					<a href="#" class="news__item">
+						<div class="news__item-bg news__item-bg--third">
+							<p class="news__item-date">Dec 27, 2018</p>
+							<p class="news__item-txt">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+							</p>
+							<p class="news__item-comments"><img src="images/comments.png" alt="comments">24 Comments</p>
+							<div class="news__item-hover">
+								<div>
+									<p>Read More</p>
+								</div>
+							</div>
+						</div>
+
+					</a>
+				</div>
+			</div>
+			<div class="row news__show">
+				<div class="col-12">
+					<button class="news__show-btn" type="button">Show more &rarr;</button>
+				</div>
 			</div>
 		</div>
 		
-		
+	</section>
+	<section class="inquiry">
+		<div class="inquiry__container">
+			<div class="row">
+				<div class="col-12 col-md-6 col-lg-6">
+					<div class="d-flex align-items-center">
+						<img src="images/mail.png" alt="mail" class="inquiry__img">
+						<div class="d-flex flex-column">
+							<h3 class="inquiry__title">Looking For Help?</h3>
+							<p class="inquiry__txt">Have ane questions or need with order? Let us Know</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-md-3 offset-md-3 col-lg-3 offset-lg-3">
+					<button class="inquiry__btn" type="button">Make An Inquiry</button>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="advantages">
+		<div class="advantages__container">
+			<div class="row">
+				<div class="col-lg-2 col-md-2 col-sm-4 col-6 d-flex flex-column justify-content-around">
+					<img src="images/USP/shipping.png" alt="shipping" class="advantages__img">
+					<p class="advantages__description">Free Shipping in Europe</p>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-4 col-6 d-flex flex-column justify-content-around">
+					<img src="images/USP/cash.png" alt="cash" class="advantages__img">
+					<p class="advantages__description">Money Mack Guaranteed</p>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-4 col-6 d-flex flex-column justify-content-around">
+					<img src="images/USP/call.png" alt="call" class="advantages__img">
+					<p class="advantages__description">24/7 Customer Support</p>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-4 col-6 d-flex flex-column justify-content-around">
+					<img src="images/USP/money.png" alt="money" class="advantages__img">
+					<p class="advantages__description">Lowest Price Guaranteed</p>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-4 col-6 d-flex flex-column justify-content-around">
+					<img src="images/USP/present.png" alt="present" class="advantages__img">
+					<p class="advantages__description">Exclusive Items for Sportshold</p>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-4 col-6 d-flex flex-column justify-content-around">
+					<img src="images/USP/delivery.png" alt="delivery" class="advantages__img">
+					<p class="advantages__description">5-Day Delivery in Europe</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="contact">
+		<div class="contact__container">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-12">
+					<div class="d-flex">
+						<img src="images/callus.png" alt="callus" class="contact__img">
+						<div class="d-flex flex-column">
+							<h4 class="contact__method">Call Us</h4>
+							<a href="tel:+01234567890" class="contact__body">0 (1234) 567890</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-12">
+					<div class="d-flex">
+						<img src="images/emailus.png" alt="emailus" class="contact__img">
+						<div class="d-flex flex-column">
+							<h4 class="contact__method">Email Us</h4>
+							<a href="mailto:hello@sportshold.com" class="contact__body">hello@sportshold.com</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-12">
+					<div class="d-flex">
+						<img src="images/adress.png" alt="adress" class="contact__img">
+						<div class="d-flex flex-column">
+							<h4 class="contact__method">Address</h4>
+							<p class="contact__body">1 Beacon Avenue, NY, USA</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</section>
 	<footer class="footer">
 		<div class="footer__container d-flex justify-content-between align-items-center">
 			<img src="images/logo.png" alt="logo">
 			<p class="footer__txt">2017 Sportshold. All rights reserved.</p>
-			<div class="footer__social d-flex justify-content-between">
+			<div class="footer__social d-flex justify-content-between align-items-center">
 				<img src="images/twitter.png" alt="twitter">
 				<img src="images/facebook.png" alt="facebook">
 				<img src="images/pinterest.png" alt="pinterest">
 				<img src="images/youtube.png" alt="youtube">
 			</div>
 		</div>
-
 	</footer>
+	
 
-
+	<script src="https://maps.googleapis.com/maps/api/js"></script>
 	<script src="js/main.min.js"></script>
 </body>
 </html>
